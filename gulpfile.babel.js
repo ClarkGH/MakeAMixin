@@ -1,23 +1,16 @@
 'use strict';
 
-const babel = require('gulp-babel');
 const bower = require('gulp-bower');
 const clean = require('gulp-clean-css');
 const colors = require('colors/safe');
-const concat = require('gulp-concat');
 const del = require('del');
-const eslint = require('gulp-eslint');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const imagemin = require('gulp-imagemin');
-const mocha = require('gulp-mocha');
 const notify = require('gulp-notify');
-const plumber = require('gulp-plumber');
 const prefixer = require('gulp-autoprefixer');
 const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
 
 // colors for our console output
 const ok = colors.magenta.bold;
@@ -95,49 +88,4 @@ gulp.task('sass', ['bower'], () => {
     .pipe(clean())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.cssPath.dist));
-});
-
-// Icons and sprites just get copied to the dist folder
-gulp.task('images', () => {
-  return gulp.src([paths.imgPath.src])
-    .pipe(imagemin({
-      verbose: true,
-      progressive: true,
-    }))
-  .pipe(gulp.dest(paths.imgPath.dist));
-});
-
-
-gulp.task('icons', () => {
-  return gulp.src([paths.fontPath.src])
-    .pipe(gulp.dest(paths.fontPath.dist));
-});
-
-// uglify our JS and move to dist
-gulp.task('js', ['lint'], () => {
-  return gulp.src([paths.scriptPath.jquery, paths.scriptPath.bootstrap,
-    paths.scriptPath.src + '/*.js'])
-    .pipe(babel({
-  presets: ['es2015'],
-    }))
-    .pipe(uglify()
-      .on('error', notify.onError((error) => {
-  return `\n\n ERROR: ${error.formatted} ${error}`;
-      })))
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest(paths.scriptPath.dist));
-});
-
-gulp.task('lint', () => {
-  return gulp.src([paths.scriptPath.src, 'gulpfile.babel.js'])
-    .pipe(eslint())
-    .pipe(eslint.format());
-    // .pipe(eslint.failAfterError())
-});
-
-gulp.task('test', () => {
-  return gulp.src(paths.test, { read: false })
-    .pipe(plumber())
-    // .pipe(mocha({ reporter: 'nyan' }));
-    .pipe(mocha());
 });
