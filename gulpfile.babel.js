@@ -12,16 +12,7 @@ const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
-// colors for our console output
 const ok = colors.magenta.bold;
-// const err = colors.red.bold;
-//
-// const partners = [
-//   'base',
-//   'healthline',
-//   'drugs',
-//   'livestrong',
-// ];
 
 const base = {
   src: 'src',
@@ -31,27 +22,11 @@ const base = {
 
 const paths = {
   dist: `${base.dist}/healthline`,
-  scriptPath: {
-    src: `${base.src}/js/*`,
-    bootstrap: `${base.bower}/bootstrap-sass/assets/javascripts/bootstrap.min.js`,
-    jquery: `${base.bower}/jquery/dist/jquery.min.js`,
-    dist: `${base.dist}/healthline/js`,
-  },
-
   cssPath: {
     src: `${base.src}/css/*`,
     bootstrap: `${base.bower}/bootstrap-sass/assets/stylesheets/`,
     dist: `${base.dist}/healthline/css`,
-  },
-  imgPath: {
-    src: `${base.src}/img/*`,
-    dist: `${base.dist}/healthline/img`,
-  },
-  fontPath: {
-    src: `${base.src}/fonts/*`,
-    dist: `${base.dist}/healthline/fonts`,
-  },
-  test: `${base.src}/test/js/*`,
+  }
 };
 
 gulp.task('watch', () => {
