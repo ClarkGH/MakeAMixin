@@ -1,0 +1,17 @@
+@mixin nested-div($color1, $color2, $color3) {
+  .a {
+    width: 100px;
+    height: 100px;
+    background-color: $color1;
+  }
+  .b {
+    padding: 10px;
+    width: 100%;
+    background-color: $color2;
+  }
+  .c {
+    padding: 10px;
+    width: 100%;
+    background-color: $color3;
+  }
+}
