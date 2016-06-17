@@ -1,0 +1,21 @@
+{
+  "name": "make-a-mixin",
+  "description": "Making a sass mixin with cool friends at work.",
+  "main": "index.js",
+  "authors": [
+    "Clark Hinchcliff"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ClarkGH/MakeAMixin",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6",
+    "jquery": "^2.2.3"
+  }
+}
