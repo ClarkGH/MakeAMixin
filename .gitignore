@@ -38,3 +38,9 @@ jspm_packages
 
 #Bower deps
 bower_components
+
+#don't listen to the CSS
+WebContent/resources/healthline/css/
+
+#ignore git DS_store
+.DS_Store
