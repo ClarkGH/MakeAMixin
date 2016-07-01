@@ -1,10 +1,22 @@
 #hl {
   @import "bootstrap";
   @import "button";
+  @import "nested-div";
+  
+  $primary-color: #333;
+  $primary3Shade1: #555555;
+  $primary3Shade0: #788087;
   
   @include nested-div(#F0F, #FF0, #0FF);
   
   .btn-primary {
-    @include button-bgcolor(purple);
+    @include button-bgcolor(green);
   }
+  
+  .sharebar-global {
+      margin: 50px 0 0 0; 
+      @include sharebar-global(#fff, #6b8e75, #788087);
+  }
+  
+  
 }
